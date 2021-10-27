@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Representacion AR</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="./src/gesture-detector.js"></script>
+    <script src="./src/gesture-handler.js"></script>
+  </head>
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs 
+             vr-mode-ui="enabled: false;"
+             renderer="logarithmicDepthBuffer: true;"
+             vr-mode-ui="enabled: false"
+             gesture-detector
+             id="scene"
+    >
+    <a-marker preset="hiro"
+              raycaster="objects: .clickable"
+              emitevents="true"
+              cursor="fuse: false; rayOrigin: mouse;"
+              id="markerA"
+    >
+      <a-entity
+        position="0 0 0"
+        scale="1 1 1"
+        gltf-model="./Assets/model/Edificio_CineBelgrano.glb"
+        class="clickable"
+        gesture-handler
+      ></a-entity>
+      
+    </a-marker>
+        <a-entity camera></a-entity>
+        </a-scene>
+</body>
+</html>
